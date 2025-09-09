@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishMart - Fresh Seafood Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/styles.css">       
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="../assets/logo.jpg" alt="FishMart Logo" class="logo-img">
+                <h1><a href="../index.html">FishMart</a></h1>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for fresh seafood...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            
+            <div class="header-actions">
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <div class="cart-count">3</div>
+                </button>
+                
+                <div class="user-menu">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" id="show-buyer-registration">Register as Buyer</a>
+                        <a href="#" id="show-seller-registration">Register as Seller</a>
+                        <a href="#"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Registration Container -->
+    <div class="registration-container" id="registration-container">
+        <div class="registration-header">
+            <h2>Create Your FishMart Account</h2>
+            <p>Join our seafood marketplace as a buyer or seller</p>
+        </div>
+        
+        <div class="registration-tabs">
+            <button class="tab-btn active" data-tab="buyer">Buyer Registration</button>
+            <button class="tab-btn" data-tab="seller">Seller Registration</button>
+        </div>
+        
+        <!-- Buyer Registration Form -->
+        <div class="registration-form" id="buyer-registration-form">
+            <form id="buyer-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="buyer-name">Full Name</label>
+                        <input type="text" id="buyer-name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="buyer-email">Email Address</label>
+                        <input type="email" id="buyer-email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="buyer-phone">Phone Number</label>
+                        <input type="tel" id="buyer-phone" class="form-control" placeholder="+254 712 345 678" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="buyer-password">Create Password</label>
+                        <input type="password" id="buyer-password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" class="btn" id="request-otp-btn">
+                        <i class="fas fa-mobile-alt"></i> Request OTP
+                    </button>
+                </div>
+                
+                <div class="otp-section" id="otp-section">
+                    <div class="form-group">
+                        <label for="otp-code">Enter OTP</label>
+                        <input type="text" id="otp-code" class="form-control" placeholder="Enter 6-digit code" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn">
+                            <i class="fas fa-user-plus"></i> Create Buyer Account
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Seller Registration Form -->
+        <div class="registration-form" id="seller-registration-form" style="display: none;">
+            <form id="seller-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seller-name">Full Name</label>
+                        <input type="text" id="seller-name" class="form-control" placeholder="Jane Smith" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-name">Business Name</label>
+                        <input type="text" id="business-name" class="form-control" placeholder="Fresh Seafood Co." required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seller-email">Email Address</label>
+                        <input type="email" id="seller-email" class="form-control" placeholder="contact@freshseafood.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="seller-phone">Phone Number</label>
+                        <input type="tel" id="seller-phone" class="form-control" placeholder="+254 712 345 678" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business-address">Business Address</label>
+                    <input type="text" id="business-address" class="form-control" placeholder="123 Fish Market, Kisumu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="license-number">Business License Number</label>
+                    <input type="text" id="license-number" class="form-control" placeholder="BL123456" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Shop Location (Select on Map)</label>
+                    <div class="map-container" id="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marker-alt fa-3x"></i>
+                            <p>Map will appear here</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Products You're Selling</label>
+                    <div class="product-grid-mini">
+                        <div class="mini-product-card">
+                            <div class="mini-product-img">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div class="mini-product-info">
+                                <div>Fresh Tilapia</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mini-product-card">
+                            <div class="mini-product-img">
+                                <i class="fas fa-shrimp"></i>
+                            </div>
+                            <div class="mini-product-info">
+                                <div>Jumbo Shrimp</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mini-product-card">
+                            <div class="mini-product-img">
+                                <i class="fas fa-crab"></i>
+                            </div>
+                            <div class="mini-product-info">
+                                <div>King Crab</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mini-product-card" style="cursor: pointer; background: #f0f7ff; border: 2px dashed #00796b;">
+                            <div class="mini-product-img" style="background: transparent;">
+                                <i class="fas fa-plus-circle fa-2x" style="color: #00796b;"></i>
+                            </div>
+                            <div class="mini-product-info">
+                                <div>Add Product</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Payment Methods</label>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked> M-Pesa
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"> Bank Transfer
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"> Credit Card
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Shipping Options</label>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked> Pickup at Store
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked> Local Delivery
+                            </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"> Nationwide Shipping
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-section">
+                    <h3><i class="fas fa-shield-alt"></i> Account Security</h3>
+                    
+                    <div class="form-group">
+                        <label for="seller-password">Create Password</label>
+                        <input type="password" id="seller-password" class="form-control" placeholder="Create a strong password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Two-Factor Authentication</label>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="flex: 1;">
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Submit for Admin Approval
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script src="../js/script.js"></script>
+
+</body>
+
