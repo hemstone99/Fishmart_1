@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishMart - Fresh Seafood Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/styles.css">       
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="../assets/logo.jpg" alt="FishMart Logo" class="logo-img">
+                <h1><a href="../index.html">FishMart</a></h1>
+            </div>
+            
+        
+            
+            <div class="header-actions">
+         
+                
+                <div class="user-menu">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="Registration.html"><i class="fas fa-sign-in-alt"></i> Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Registration Container -->
+    <div class="registration-container" id="registration-container">
+        <div class="registration-header">
+            <h2>Login to Your Fishmart Account</h2>
+            <p>Join our seafood marketplace as a buyer or seller</p>
+        </div>
+        
+        
+        <!-- Login Form -->
+        <div class="registration-form" id="buyer-registration-form">
+            <form id="buyer-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="buyer-email">Email Address</label>
+                        <input type="email" id="buyer-email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                 
+                    
+                    <div class="form-group">
+                        <label for="buyer-password">Password</label>
+                        <input type="password" id="buyer-password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" class="btn" id="request-otp-btn">
+                        <i class="fas fa-mobile-alt"></i> Request OTP
+                    </button>
+                </div>
+                
+                <div class="otp-section" id="otp-section">
+                    <div class="form-group">
+                        <label for="otp-code">Enter OTP</label>
+                        <input type="text" id="otp-code" class="form-control" placeholder="Enter 6-digit code" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn">
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script src="../js/login.js"></script>
+
+</body>
+

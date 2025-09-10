@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishMart - Fresh Seafood Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/styles.css">  
+    <link rel="stylesheet" href="../css/contact.css">     
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="../assets/logo.jpg" alt="FishMart Logo" class="logo-img">
+                <h1><a href="../index.html">FishMart</a></h1>
+            </div>
+            
+           
+            <div class="header-actions">
+                
+                <div class="user-menu">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="./Registration.html" >Register/login </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main>
+    <section class="main-content">
+         <!-- Contact Page -->
+        <div class="page-content" id="contact">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p>We'd love to hear from you</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 style="color: #004d40; margin-bottom: 20px;">Get in Touch</h3>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Address</h3>
+                                    <p>123 Fish Market Road<br>Nairobi, Kenya</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Phone</h3>
+                                    <p>+254 700 453199<br>+254 791052129</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <p>info@fishmart.co.ke<br>orders@fishmart.co.ke</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 style="color: #004d40; margin-bottom: 20px;">Send us a Message</h3>
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="What is this regarding?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Type your message here"></textarea>
+                        </div>
+
+                        <button class="submit-btn">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="../js/script.js"></script>
+
+</body>
+
