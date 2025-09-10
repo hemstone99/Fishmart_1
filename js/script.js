@@ -76,8 +76,25 @@
             alert("Seller account submitted for admin approval!");
             document.getElementById('registration-container').style.display = 'none';
         });
+
+         // Initialize map (simulated)
+        function initMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt fa-3x"></i>
+                        <p>Kisumu Fish Market Location</p>
+                        <small>Map integration would appear here</small>
+                    </div>
+                `;
+            }
+        }
         
-        // Simple cart functionality
+        // Initialize map when seller tab is shown
+        document.querySelector('[data-tab="seller"]').addEventListener('click', initMap);
+        
+     /*   // Simple cart functionality
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
                 const cartCount = document.querySelector('.cart-count');
@@ -259,4 +276,4 @@ window.addEventListener('click', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartCount.textContent = totalItems;
-});
+});*/

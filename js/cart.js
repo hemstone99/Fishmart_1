@@ -66,34 +66,52 @@ function updateCart() {
 
 // Render cart items to the DOM
 function renderCartItems() {
-  let totalPrice = 0;
+if (cart.length === 0) {
+    cartItems.innerHTML = "<p class='empty-cart'>Your cart is empty</p>";
+    const subtotal = document.getElementById('subtotal');
+    subtotal.textContent = `Ksh 0`;
+    cartTotal.textContent = `Ksh 0`;
+    return;
+  }
 
+  let totalPrice = 0;
   const itemsHtml = cart.map(item => {
     const itemTotal = Math.round(item.price * item.quantity * 100) / 100;
     totalPrice += itemTotal;
 
     return `
       <div class="cart-item">
-        <img src="${item.img}" alt="${item.name}" class='item-image '>
-        <div class="item-details">
-          <h4>${item.name}</h4>
-          <p>Ksh ${item.price.toLocaleString()}</p>
-          <div class="item-quantity">
-            <button class="quantity-btn minus" data-id="${item.id}">-</button>
-            <span>${item.quantity}</span>
-            <button class="quantity-btn plus" data-id="${item.id}">+</button>
-          </div>
-        </div>
-        <div class="item-total">Ksh ${itemTotal.toLocaleString()}</div>
-        <button class="remove-btn" data-id="${item.id}">remove</button>
-      </div>
-    `;
+     <div class="item-details">
+     <div class="item-info">
+     <div class="item-image">
+     <img src="${item.img}" alt="${item.name}" >
+     </div>
+     <div>
+     <h4>${item.name}</h4>
+      <p class="price">Ksh ${item.price.toLocaleString()}</p>
+     </div>
       
+    </div>
+  </div>
+
+  <div class="item-total">
+    <p>Ksh ${itemTotal.toLocaleString()}</p>
+    <div class="item-quantity">
+      <button class="quantity-btn minus" data-id="${item.id}">-</button>
+      <span>${item.quantity}</span>
+      <button class="quantity-btn plus" data-id="${item.id}">+</button>
+    </div>
+    <button class="remove-btn" data-id="${item.id}">Remove</button>
+  </div>
+</div>
+
+    `;
+
   }).join('');
 
   cartItems.innerHTML = itemsHtml;
-   const subtotal = document.getElementById('subtotal');
-    subtotal.textContent = `Ksh ${totalPrice.toLocaleString()}`;
+  const subtotal = document.getElementById('subtotal');
+  subtotal.textContent = `Ksh ${totalPrice.toLocaleString()}`;
   cartTotal.textContent = `Ksh ${totalPrice.toLocaleString()}`;
 }
 

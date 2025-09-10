@@ -1,7 +1,7 @@
   import products from "./data.js";    
 // ======== USER MENU FUNCTIONALITY ========
 const products_grid = document.querySelector('.products-grid');
-
+const notification=document.getElementById("notification")
 products.forEach(product => {
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
@@ -69,6 +69,38 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   });
 });
 
+// ======== HANDLE DEALS ADD TO CART ========
+document.querySelectorAll('.deal-card .add-to-cart').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const btn = e.target;
+    const productId = btn.dataset.id;
+    const productName = btn.dataset.name || 'Unnamed Deal';
+    const productPrice = parseFloat(btn.dataset.price) || 0;
+
+    // Get deal image
+    const dealCard = btn.closest('.deal-card');
+    const dealImgEl = dealCard.querySelector('.deal-image img');
+    const productImg = dealImgEl ? dealImgEl.src : '';
+
+    // Add deal to cart using same function
+    addToCart({
+      id: productId,
+      name: productName,
+      price: productPrice,
+      img: productImg
+    });
+
+    // Button feedback
+    btn.innerHTML = 'Deal Added';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = `Add to Cart`;
+      btn.disabled = false;
+    }, 2000);
+  });
+});
+
+
 cartbtn?.addEventListener('click', () => {
   window.location.href = 'cart.html';
 });
@@ -91,6 +123,12 @@ function addToCart(item) {
 } else {
     item.quantity = 1;
     cart.push(item);
+    notification.classList.add("show")
+
+    setTimeout(() => {
+    notification.classList.remove("show")
+      
+    }, 3000);
   }
 
   updateCart();
