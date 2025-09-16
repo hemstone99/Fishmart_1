@@ -98,7 +98,7 @@ const products = [
         id: 12,
         name: "Dagaa (Fresh)",
         price: 280,
-        image: "../assets/dagaa.jpeg",
+        image: "../assets/Dagaa.jpeg",
         description: "Small sardine-like fish",
         category: "Small Fish"
     },
@@ -224,7 +224,7 @@ const products = [
         id: 27,
         name: "Clams (Live)",
         price: 600,
-        image: "../assets/clams.jpeg",
+        image: "../assets/Clams.jpeg",
         description: "Fresh from Shimoni",
         category: "Shellfish"
     },
@@ -232,7 +232,7 @@ const products = [
         id: 28,
         name: "Sea Urchin",
         price: 800,
-        image: "../assets/Sea Urchins.jpeg",
+        image: "../assets/Sea urchins.jpeg",
         description: "Coastal delicacy",
         category: "Shellfish"
     },
@@ -248,7 +248,7 @@ const products = [
         id: 30,
         name: "Whitebait (Fresh)",
         price: 350,
-        image: "../assets/whitebait.webp",
+        image: "../assets/Whitebait.webp",
         description: "Tiny whole fish for frying",
         category: "Small Fish"
     },
@@ -256,7 +256,7 @@ const products = [
         id: 31,
         name: "Tilapia Fillet (Skinless)",
         price: 750,
-        image: "../assets/tilapia-fillet-Skinless.jpg",
+        image: "../assets/tilapia-fillet-skinless.jpg",
         description: "Boneless convenience cut",
         category: "Processed Fish"
     },
